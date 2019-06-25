@@ -7,6 +7,11 @@
     <title>Upload Dataset</title>
 </head>
 <body>
+    <h2>List Dataset</h2>
+    {% for element in files %}
+        <a href="{{ url_for('choose') }}?data={{ element }}">{{ element }}</a><br>
+    {% endfor %}
+    
     <h2>Upload data</h2>
     <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
         <input type="file" name="file" id="file" accept="csv">

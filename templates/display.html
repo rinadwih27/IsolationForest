@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Display Data</title>
+</head>
+<body>
+    <table>
+        <thead>
+            {% for element in column %}
+            <th>{{ element }}</th>
+            {% endfor %}
+        </thead>
+        <tbody>
+            {% for row in data %}
+            <tr>
+                {% for element in row %}
+                <td>{{ element }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h2>Data Shape :</h2>
+    <p>{{ shape }}</p>
+</body>
+</html>
