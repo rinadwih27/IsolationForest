@@ -25,5 +25,26 @@
     </table>
     <h2>Data Shape :</h2>
     <p>{{ shape }}</p>
+    <h2>Data Describe :</h2>
+    <table>
+        <thead>
+            <th>X</th>
+            {% for element in column %}
+            <th>{{ element }}</th>
+            {% endfor %}
+        </thead>
+        <tbody>
+            {% for row in descr %}
+                <tr>
+                    {% for data in row %}
+                        <td>{{ data }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <h2>Data Types :</h2>
+    <p>{{ tipe }}</p>
 </body>
 </html>

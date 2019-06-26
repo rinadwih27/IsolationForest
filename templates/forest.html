@@ -8,9 +8,36 @@
 </head>
 <body>
     <form action="{{ url_for('forest') }}" method="POST">
-        <input type="text" name="nama" value="{{ nama }}">
-        <input type="number" name="nim" value="{{ nim }}">
+        <h2>Atribut Kelas</h2>
+        <select name="kelas" id="kelas">
+            {% for element in column %}
+            <option value="{{ element }}">{{ element }}</option>
+            {% endfor %}
+        </select>
+        <h2>Normal</h2>
+        <input type="text" name="normal" id="normal" value="{{ normal }}">
+        <h2>Abnormal</h2>
+        <input type="text" name="abnormal" id="abnormal" value="{{ abnormal }}">
+        <h2>Contamination</h2><br>
+        <input type="range" name="cont" value="{{ cont }}" min="1" max="100" id="inputpersen" onchange="persen(this)">
+        <p id="persenan"></p>
+        <h2>Number of Tree</h2><br>
+        <input type="number" name="tree" value="{{ tree }}">
+        <h2>Samples</h2><br>
+        <input type="number" name="sample" value="{{ sample }}">
+        <br>
+        <br>
         <button type="submit">Submit</button>
     </form>
 </body>
+<script>
+    var range = document.getElementById('inputpersen')
+    var persenan = document.getElementById('persenan')
+    // TODO: defaultnya
+    range.value = 36
+    persenan.innerHTML = range.value
+    function persen(nilai) {
+        persenan.innerHTML = nilai.value
+    }
+</script>
 </html>
